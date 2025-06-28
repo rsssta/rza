@@ -1,0 +1,54 @@
+{
+	"name": "directus-extension-ocrbundle",
+	"description": "Please enter a description for your extension",
+	"icon": "extension",
+	"version": "1.0.0",
+	"keywords": [
+		"directus",
+		"directus-extension",
+		"directus-extension-bundle"
+	],
+	"files": [
+		"dist"
+	],
+	"directus:extension": {
+		"type": "bundle",
+		"path": {
+			"app": "dist/app.js",
+			"api": "dist/api.js"
+		},
+		"entries": [
+			{
+				"type": "operation",
+				"name": "tcocr",
+				"source": {
+					"app": "src/operation-tcocr/app.js",
+					"api": "src/operation-tcocr/api.js"
+				}
+			},
+			{
+				"type": "operation",
+				"name": "operation-test",
+				"source": {
+					"app": "src/operation-test/app.js",
+					"api": "src/operation-test/api.js"
+				}
+			}
+		],
+		"host": "^10.10.0"
+	},
+	"scripts": {
+		"build": "directus-extension build",
+		"dev": "directus-extension build -w --no-minify",
+		"link": "directus-extension link",
+		"add": "directus-extension add"
+	},
+	"devDependencies": {
+		"@directus/extensions-sdk": "13.0.1",
+		"vue": "^3.5.13"
+	},
+	"dependencies": {
+		"tencentcloud-sdk-nodejs": "^4.0.1038",
+		"tencentcloud-sdk-nodejs-ocr": "^4.0.1036"
+	}
+}
